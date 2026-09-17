@@ -1,7 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-
-const { build } = require('../helper')
+import { build } from '../helper'
 
 test('example is loaded', async t => {
   const app = await build(t)

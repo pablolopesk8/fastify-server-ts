@@ -1,7 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-
-const { build } = require('../helper')
+import { build } from '../helper'
 
 test('default root route', async t => {
   const app = await build(t)

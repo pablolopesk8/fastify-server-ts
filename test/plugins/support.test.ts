@@ -1,15 +1,17 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-
-const Fastify = require('fastify')
-const Support = require('../../plugins/support')
+import Fastify from 'fastify'
+import Support from '../../plugins/support'
 
 test('support works standalone', async () => {
   const fastify = Fastify()
   fastify.register(Support)
 
   await fastify.ready()
-  assert.equal(fastify.someSupport(), 'hugs')
+  const decoratedFastify = fastify as unknown as {
+    someSupport: () => string
+  }
+  assert.equal(decoratedFastify.someSupport(), 'hugs')
 })
 
 // You can also use plugin with opts in fastify v2
