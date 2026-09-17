@@ -18,15 +18,15 @@ The module naming convention is simple:
 ## Adding a route
 
 ```ts
-import { FastifyPluginAsync } from 'fastify'
+import { FastifyPluginAsync } from 'fastify';
 
 const exampleRoute: FastifyPluginAsync = async function (fastify) {
   fastify.get('/hello', async function () {
-    return { hello: 'world' }
-  })
-}
+    return { hello: 'world' };
+  });
+};
 
-export = exampleRoute
+export = exampleRoute;
 ```
 
 This route is loaded automatically as long as the file remains in `routes/` or inside a nested route directory.

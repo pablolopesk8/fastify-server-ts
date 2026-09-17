@@ -8,7 +8,11 @@ importers:
       '@fastify/autoload': ^6.0.0
       '@fastify/sensible': ^6.0.0
       '@types/node': ^22.10.2
+      '@typescript-eslint/eslint-plugin': ^8.70.0
+      '@typescript-eslint/parser': ^8.70.0
       eslint: ^10.10.0
+      eslint-config-prettier: ^10.1.8
+      eslint-plugin-prettier: ^5.5.6
       fastify: ^5.0.0
       fastify-cli: ^7.4.1
       fastify-plugin: ^5.0.0
@@ -26,7 +30,11 @@ importers:
     devDependencies:
       '@eslint/js': 10.0.1_eslint@10.10.0
       '@types/node': 22.20.3
+      '@typescript-eslint/eslint-plugin': 8.70.0_y5qotrzor6ski63pm2sfo4w7za
+      '@typescript-eslint/parser': 8.70.0_m3ukuvydzwnc7lxloyurdgsxdm
       eslint: 10.10.0
+      eslint-config-prettier: 10.1.8_eslint@10.10.0
+      eslint-plugin-prettier: 5.5.6_vxiswjtlu6iojhvreu7fpgb56a
       globals: 17.12.0
       prettier: 3.9.7
       tsx: 4.23.13
@@ -460,6 +468,11 @@ packages:
     resolution: {integrity: sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==}
     dev: false
 
+  /@pkgr/core/0.3.6:
+    resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dev: true
+
   /@types/esrecurse/4.3.1:
     resolution: {integrity: sha512-xJBAbDifo5hpffDBuHl0Y8ywswbiAp/Wi7Y/GtAgSlZyIABppyurxVueOPE8LUQOxdlgi6Zqce7uoEpqNTeiUw==}
     dev: true
@@ -841,6 +854,36 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /eslint-config-prettier/10.1.8_eslint@10.10.0:
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 10.10.0
+    dev: true
+
+  /eslint-plugin-prettier/5.5.6_vxiswjtlu6iojhvreu7fpgb56a:
+    resolution: {integrity: sha512-ifetmTcxWfz+4qRW3pH/ujdTq2jQIj59AxJMIN26K5avYgU8dxycUETQonWiW+wPrYXA0j3Try0l1CnwVQtDqQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
+      eslint-config-prettier: '>= 7.0.0 <10.0.0 || >=10.1.0'
+      prettier: '>=3.0.0'
+    peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 10.10.0
+      eslint-config-prettier: 10.1.8_eslint@10.10.0
+      prettier: 3.9.7
+      prettier-linter-helpers: 1.0.1
+      synckit: 0.11.13
+    dev: true
+
   /eslint-scope/9.1.2:
     resolution: {integrity: sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
@@ -948,6 +991,10 @@ packages:
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
+
+  /fast-diff/1.3.0:
+    resolution: {integrity: sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==}
+    dev: true
 
   /fast-json-stable-stringify/2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -1453,6 +1500,13 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /prettier-linter-helpers/1.0.1:
+    resolution: {integrity: sha512-SxToR7P8Y2lWmv/kTzVLC1t/GDI2WGjMwNhLLE9qtH8Q13C+aEmuRlzDst4Up4s0Wc8sF2M+J57iB3cMLqftfg==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      fast-diff: 1.3.0
+    dev: true
+
   /prettier/3.9.7:
     resolution: {integrity: sha512-T3mF5P7HFzZVLDQuCUNtJj6WK1pcpLMweMNUVwGb01bLNkH9AkKxtZvmInw8K6bnn2O3d6/5RHl6zSHiBAD0Og==}
     engines: {node: '>=14'}
@@ -1621,6 +1675,13 @@ packages:
     dependencies:
       has-flag: 4.0.0
     dev: false
+
+  /synckit/0.11.13:
+    resolution: {integrity: sha512-eNRKgb3z66Yp3D2CixVujOUvXLFUTij/zVnV8KRyvFdQwpz7I5DS8UfRkTeLzb64u+dkzDSdelE24izu+zSSUg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@pkgr/core': 0.3.6
+    dev: true
 
   /thread-stream/4.2.0:
     resolution: {integrity: sha512-e2zZ96wSChazBsbENf/Pcm/4swHt2cEKQ92rhUjkL9GCKiTDJIaTBenjE/m9DXi0QBmTMDkFDdOomUy20A1tDQ==}

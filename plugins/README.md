@@ -13,16 +13,16 @@ The current example is intentionally minimal, but the pattern is the same you wo
 ## Example
 
 ```ts
-import fp from 'fastify-plugin'
-import { FastifyPluginAsync } from 'fastify'
+import fp from 'fastify-plugin';
+import { FastifyPluginAsync } from 'fastify';
 
 const supportPlugin: FastifyPluginAsync = async function (fastify) {
   fastify.decorate('someSupport', function () {
-    return 'hugs'
-  })
-}
+    return 'hugs';
+  });
+};
 
-export = fp(supportPlugin)
+export = fp(supportPlugin);
 ```
 
 Keep plugin code focused and reusable. If the behavior is specific to a single route or endpoint, it usually belongs in the `routes/` folder instead.
