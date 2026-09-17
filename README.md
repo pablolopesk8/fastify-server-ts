@@ -1,23 +1,65 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# Fastify Server TypeScript
 
-## Available Scripts
+This project is a minimal Fastify + TypeScript server that auto-loads plugin and route modules from the `plugins/` and `routes/` directories.
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm run dev`
+- Node.js
+- npm
 
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Install
 
-### `npm start`
+From the project root, install dependencies:
 
-For production mode
+```bash
+pnpm install
+```
 
-### `npm run test`
+## Run the app
 
-Run the test cases.
+### Development mode
 
-## Learn More
+```bash
+pnpm run dev
+```
 
-To learn Fastify, check out the [Fastify documentation](https://fastify.dev/docs/latest/).
+This builds the TypeScript app and starts the Fastify server with watch mode enabled. The app listens on the default Fastify port:
+
+- http://localhost:3000
+
+### Production mode
+
+```bash
+pnpm start
+```
+
+This builds the project and runs the compiled server from `dist/app.js`.
+
+## Run tests
+
+```bash
+pnpm test
+```
+
+This script runs the TypeScript build first and then executes the test suite with Node's built-in test runner and `tsx`.
+
+## Project structure
+
+- `app.ts` registers the auto-loaded plugins and routes.
+- `plugins/` contains Fastify plugins shared across the app.
+- `routes/` contains route modules; nested folders like `routes/example/` are also auto-loaded.
+- `test/` contains the application tests.
+
+## Useful commands
+
+```bash
+pnpm run build
+pnpm run dev
+pnpm start
+pnpm test
+```
+
+## Learn more
+
+- Fastify docs: https://fastify.dev/docs/latest/
+- Fastify CLI: https://www.npmjs.com/package/fastify-cli
