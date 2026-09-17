@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 
 const { build } = require('../helper')
 
-test('example is loaded', async (t) => {
+test('example is loaded', async t => {
   const app = await build(t)
 
   const res = await app.inject({
