@@ -1,8 +1,9 @@
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import globals from 'globals'
+import { defineConfig } from 'eslint/config'
 
-export default tseslint.config(
+export default defineConfig(
   {
     ignores: ['dist', 'node_modules']
   },
@@ -21,8 +22,6 @@ export default tseslint.config(
       semi: ['error', 'never'],
       quotes: ['error', 'single', { avoidEscape: true }],
       'no-console': 'off',
-      '@typescript-eslint/no-require-imports': 'off',
-      '@typescript-eslint/no-explicit-any': 'off'
     }
   }
 )

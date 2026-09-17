@@ -9,7 +9,7 @@ function config() {
   }
 }
 
-async function build(t: any) {
+async function build(t: { after: (callback: () => void) => void }) {
   const argv = [AppPath]
   const app = await buildApplication(argv, config())
 
