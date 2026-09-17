@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2022",
     "module": "es2022",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
@@ -11,5 +11,5 @@
     "types": ["node"],
     "outDir": "dist"
   },
-  "include": ["app.ts", "plugins/**/*", "routes/**/*.ts", "test/**/*"]
+  "include": ["app.ts", "plugins/**/*.ts", "routes/**/*.ts", "test/**/*.ts"]
 }
