@@ -25,7 +25,7 @@ pnpm run dev
 
 This builds the TypeScript app and starts the Fastify server with watch mode enabled. The app listens on the default Fastify port:
 
-- http://localhost:3000
+- <http://localhost:3000>
 
 ### Production mode
 
@@ -61,5 +61,5 @@ pnpm test
 
 ## Learn more
 
-- Fastify docs: https://fastify.dev/docs/latest/
-- Fastify CLI: https://www.npmjs.com/package/fastify-cli
+- Fastify docs: <https://fastify.dev/docs/latest/>
+- Fastify CLI: <https://www.npmjs.com/package/fastify-cli>
