@@ -1,15 +1,13 @@
 # Fastify Server TypeScript
 
-This project is a minimal Fastify + TypeScript server that auto-loads plugin and route modules from the `plugins/` and `routes/` directories.
+This repository is a small Fastify + TypeScript server built around auto-loaded plugins and routes. The app is configured in `app.ts`, where `@fastify/autoload` loads everything from the `plugins/` and `routes/` directories.
 
 ## Prerequisites
 
 - Node.js
-- npm
+- pnpm
 
-## Install
-
-From the project root, install dependencies:
+## Install dependencies
 
 ```bash
 pnpm install
@@ -17,23 +15,23 @@ pnpm install
 
 ## Run the app
 
-### Development mode
+### Development
 
 ```bash
 pnpm run dev
 ```
 
-This builds the TypeScript app and starts the Fastify server with watch mode enabled. The app listens on the default Fastify port:
+This script builds the TypeScript app and starts Fastify CLI in watch mode. The server listens on the default Fastify port:
 
 - <http://localhost:3000>
 
-### Production mode
+### Production
 
 ```bash
 pnpm start
 ```
 
-This builds the project and runs the compiled server from `dist/app.js`.
+This builds the project and starts the compiled server from `dist/app.js`.
 
 ## Run tests
 
@@ -41,14 +39,20 @@ This builds the project and runs the compiled server from `dist/app.js`.
 pnpm test
 ```
 
-This script runs the TypeScript build first and then executes the test suite with Node's built-in test runner and `tsx`.
+The test script first runs `tsc -p tsconfig.json`, then executes the Node test suite with `node --test --import tsx` against files in `test/**/*.test.ts`.
 
 ## Project structure
 
-- `app.ts` registers the auto-loaded plugins and routes.
-- `plugins/` contains Fastify plugins shared across the app.
-- `routes/` contains route modules; nested folders like `routes/example/` are also auto-loaded.
-- `test/` contains the application tests.
+- `app.ts` registers the plugin and route loaders.
+- `plugins/` holds shared Fastify plugins, such as `support.ts`.
+- `routes/` contains root-level and nested route modules. The example route is mounted under `routes/example/index.ts`, which is exposed at `/example`.
+- `test/` contains app-level and plugin-level tests using `app.inject()`.
+
+## Current app behavior
+
+- `GET /` returns `{ root: true }` from `routes/root.ts`.
+- `GET /example` returns `this is an example` from `routes/example/index.ts`.
+- `plugins/support.ts` adds a `someSupport()` decorator that is verified by the standalone plugin test.
 
 ## Useful commands
 
@@ -57,6 +61,9 @@ pnpm run build
 pnpm run dev
 pnpm start
 pnpm test
+pnpm lint
+pnpm format
+pnpm format:check
 ```
 
 ## Learn more
