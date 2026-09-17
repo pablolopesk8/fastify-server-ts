@@ -1,6 +1,9 @@
 import path from 'node:path';
-import { build as buildApplication } from 'fastify-cli/helper';
+import { fileURLToPath } from 'node:url';
+import { build as buildApplication } from 'fastify-cli/helper.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const AppPath = path.join(__dirname, '..', 'dist', 'app.js');
 
 function config() {

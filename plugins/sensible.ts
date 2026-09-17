@@ -6,4 +6,4 @@ const sensiblePlugin: FastifyPluginAsync = async function (fastify) {
   fastify.register(sensible);
 };
 
-export = fp(sensiblePlugin);
+export default fp(sensiblePlugin);

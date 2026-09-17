@@ -1,6 +1,10 @@
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import AutoLoad from '@fastify/autoload';
 import { FastifyPluginAsync, FastifyPluginOptions } from 'fastify';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const options: FastifyPluginOptions = {};
 
@@ -18,4 +22,4 @@ const app: FastifyPluginAsync & { options: FastifyPluginOptions } = async functi
 
 app.options = options;
 
-export = app;
+export default app;

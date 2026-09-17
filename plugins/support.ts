@@ -7,4 +7,4 @@ const supportPlugin: FastifyPluginAsync = async function (fastify) {
   });
 };
 
-export = fp(supportPlugin);
+export default fp(supportPlugin);
