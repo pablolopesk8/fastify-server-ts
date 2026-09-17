@@ -11,10 +11,5 @@
     "types": ["node"],
     "outDir": "dist"
   },
-  "include": [
-    "app.ts",
-    "plugins/**/*.ts",
-    "routes/**/*.ts",
-    "test/**/*.ts"
-  ]
+  "include": ["app.ts", "plugins/**/*.ts", "routes/**/*.ts", "test/**/*.ts"]
 }
